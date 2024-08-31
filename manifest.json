@@ -1,0 +1,16 @@
+{
+	"manifest_version": 3,
+	"name": "Scroll Web page",
+	"version": "1.0.0",
+	"icons": "icon.png",
+	"description": "This is to scroll Web page automatically.",
+	"action": {
+		"default_popup": "popup.html",
+		"default_icon": "128.png"
+	},
+	"permissions": ["activeTab"],
+	"content_scripts": [{
+		"matches": ["<all_urls>"],
+		"js": ["contents.js"]
+	}]
+}
