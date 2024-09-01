@@ -2,15 +2,23 @@
 	"manifest_version": 3,
 	"name": "Scroll Web page",
 	"version": "1.0.0",
-	"icons": "icon.png",
 	"description": "This is to scroll Web page automatically.",
-	"action": {
-		"default_popup": "popup.html",
-		"default_icon": "128.png"
+	"icons": {
+		"16": "icon/icon16.png",
+		"48": "icon/icon48.png",
+		"128": "icon/icon128.png"
 	},
-	"permissions": ["activeTab"],
+	"action": {
+		"default_icon": "icon/icon128.png",
+		"default_popup": "popup.html"
+	},
 	"content_scripts": [{
 		"matches": ["<all_urls>"],
+		"css": ["style.css"],
 		"js": ["contents.js"]
-	}]
+	}],
+	"background":{
+		"sevice_worker": "background.js"
+	},
+	"permissions": ["activeTab"]
 }
