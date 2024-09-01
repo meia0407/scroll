@@ -15,3 +15,11 @@ body {
 	font-variation-settings:
 	  "wdth" 100;
 }
+
+.error {
+	display: none;
+	font-family: "Noto Sans JP", sans-serif;
+	font-optical-sizing: auto;
+	font-weight: 400;
+	font-style: normal;
+}

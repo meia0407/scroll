@@ -6,14 +6,17 @@
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wdth,wght@0,62.5..100,100..900;1,62.5..100,100..900&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap" rel="stylesheet">
 		<link rel="stylesheet" href="style.css">
 		
 	</head>
 	<body">
 		<h1 class="noto-sans-h1">Scroll Web page</h1>
-		<button id="upButton">Up</button>
-		<button id="stopButton">Stop</button>
-		<button id="downButton">Down</button>
+		<input type="text" id="inputNumber" value="1" placeholder="速さを入力してください" pattern="[0-9]{1,2}" maxlength="2">
+		<span class="error">数値以外は入力できません。</span>
+		<button type="button" id="upButton">Up</button>
+		<button type="button" id="stopButton">Stop</button>
+		<button type="button" id="downButton">Down</button>
 		<script>
 			chrome.tabs.query(
 				{active:true, lastFocusedWindow:true, currentWindow:true,}, tabs => {
