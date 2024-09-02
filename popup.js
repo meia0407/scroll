@@ -9,11 +9,35 @@ function setSpeed() {
 }
 
 function setID() {
-	// ここを書く
+	const tab_id = chrome.tabs.query(
+		{
+			active:true,
+			lastFocusedWindow:true, 
+			currentWindow:true
+		}
+	);
+
+	return Number(tab_id);
 }
 
 
 document.getElementById("upButton").onclick = function() {
-	// この続きを書く
-	chrome.tabs.sendMessage(Number(tab_id), {method: "up"})
+	const speed = setSpeed();
+	chrome.tabs.sendMessage(tab_id, {"method": speed});
+
+	const tab_id = setID();
+	chrome.tabs.sendMessage(tab_id, {"method": "up"});
+}
+
+document.getElementById("downButton").onclick = function() {
+	const speed = setSpeed();
+	chrome.tabs.sendMessage(tab_id, {"method": speed});
+
+	const tab_id = setID();
+	chrome.tabs.sendMessage(tab_id, {"method": "down"});
+}
+
+document.getElementById("stopButton").onclick = function() {
+	const tab_id = setID();
+	chrome.tabs.sendMessage(tab_id, {"method": "stop"});
 }
