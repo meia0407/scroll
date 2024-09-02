@@ -11,14 +11,20 @@ function scrollDown(pace){
 
 
 chrome.runtime.onMessage.addListener(function(request) {
-	speed = request.speed;
-	
-	if (request.method == "upButton") {
+	if (request["speed"]) {
+		speed = request[speed];
+	}
 
+	if (request.method == "upButton") {
+		if (state == "stop") {
+			state == "scroll";
+		}
 	} else if (request.method == "downButton") {
 
 	} else if (request.method == "stopButton") {
-
+		if (state == "scroll") {
+			state = "stop";
+		}
 	}
 
 })
