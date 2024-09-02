@@ -23,21 +23,30 @@ function setID() {
 
 document.getElementById("upButton").onclick = function() {
 	const speed = setSpeed();
-	chrome.tabs.sendMessage(tab_id, {"method": speed});
-
 	const tab_id = setID();
-	chrome.tabs.sendMessage(tab_id, {"method": "up"});
+	chrome.tabs.sendMessage(tab_id,
+		{
+			method: "up",
+		    pace: speed
+		}
+	);
 }
 
 document.getElementById("downButton").onclick = function() {
 	const speed = setSpeed();
-	chrome.tabs.sendMessage(tab_id, {"method": speed});
-
-	const tab_id = setID();
-	chrome.tabs.sendMessage(tab_id, {"method": "down"});
+	chrome.tabs.sendMessage(tab_id,
+		{
+			method: "down",
+			pace: speed
+		}
+	);
 }
 
 document.getElementById("stopButton").onclick = function() {
 	const tab_id = setID();
-	chrome.tabs.sendMessage(tab_id, {"method": "stop"});
+	chrome.tabs.sendMessage(tab_id,
+		{
+			method: "stop"
+		}
+	);
 }

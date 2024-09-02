@@ -1,15 +1,24 @@
-function scrollUp() {
-	window.scrollBy(0, -1);
+var pace = 1;
+var state = "stop";
+
+function scrollUp(pace) {
+	window.scrollBy(0, -1 * pace);
 }
 
-function scrollDown(){
-	window.scrollBy(0, 1);
+function scrollDown(pace){
+	window.scrollBy(0, pace);
 }
 
 
 chrome.runtime.onMessage.addListener(function(request) {
-	// この続きを書く
+	speed = request.speed;
+	
+	if (request.method == "upButton") {
+
+	} else if (request.method == "downButton") {
+
+	} else if (request.method == "stopButton") {
+
+	}
 
 })
-
-chrome.tabs.query({active:true, lastFocusedWindow:true, currentWindow:true})
